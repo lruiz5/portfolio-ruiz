@@ -1,9 +1,12 @@
+import { Button, Container } from "reactstrap";
 import BaseLayout from "../components/layouts/BaseLayout";
 
 const Home = () => {
   return (
     <BaseLayout>
-      <h1>Index</h1>
+      <Container>
+        <Button color="danger">Danger</Button>
+      </Container>
     </BaseLayout>
   );
 };
