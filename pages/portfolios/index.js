@@ -1,6 +1,8 @@
 import axios from "axios";
-import BaseLayout from "../../components/layouts/BaseLayout";
 import Link from "next/link";
+import BaseLayout from "../../components/layouts/BaseLayout";
+import BasePage from "../../components/BasePage";
+
 const Portfolios = ({ posts }) => {
   const renderPosts = () => {
     return posts.map((post) => (
@@ -12,8 +14,10 @@ const Portfolios = ({ posts }) => {
   return (
     <>
       <BaseLayout>
-        <h1>Portfolios Page</h1>
-        <ul>{renderPosts()}</ul>
+        <BasePage>
+          <h1>Portfolios Page</h1>
+          <ul>{renderPosts()}</ul>
+        </BasePage>
       </BaseLayout>
     </>
   );
