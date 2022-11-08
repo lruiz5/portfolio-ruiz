@@ -30,11 +30,11 @@ const Header = () => {
         dark
         expand="md"
       >
-        <NavbarBrand>
+        <div>
           <Link className="port-navbar-brand" href="/">
             Luis Ruiz
           </Link>
-        </NavbarBrand>
+        </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
