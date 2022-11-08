@@ -6,16 +6,20 @@
 // Pages
 @import './index';
 
-.absolute{
-  position: absolute;
-}
-  
 html, body {
     width: 100%;
     height: 100%;
     font-family: "Montserrat", "Helvetica";
 }
 
+.absolute{
+  position: absolute;
+}
+
+.clickable{
+  cursor: pointer;
+}
+  
 .self-typed{
   font-size: 30px;
   color: white;
@@ -30,4 +34,7 @@ html, body {
 .base-page{
   padding-top: 150px;
   color: white;
+}
+.right-align{
+  right: 3em;
 }

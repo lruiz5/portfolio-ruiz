@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import BaseLayout from "../components/layouts/BaseLayout";
 import { Container, Row, Col } from "reactstrap";
+import BaseLayout from "@/components/layouts/BaseLayout";
 import Typed from "typed.js";
 
 const roles = ["Developer", "Tech Lover", "Team Player", "React JS"];
