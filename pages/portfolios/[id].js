@@ -1,14 +1,12 @@
 import axios from "axios";
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
-import { useGetData } from "@/actions";
+import { useGetPostById } from "@/actions";
 import { useRouter } from "next/router";
 
 const PortfolioDetail = () => {
   const router = useRouter();
-  const { data, error, loading } = useGetData(
-    router.query.id ? `/api/v1/posts/${router.query.id}` : null
-  );
+  const { data, error, loading } = useGetPostById(router.query.id);
   return (
     <>
       <BaseLayout>
