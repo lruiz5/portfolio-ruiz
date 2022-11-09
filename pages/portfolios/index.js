@@ -1,10 +1,10 @@
 import Link from "next/link";
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
-import { useGetData } from "@/actions";
+import { useGetPosts } from "@/actions";
 
 const Portfolios = () => {
-  const { data, error, loading } = useGetData("/api/v1/posts");
+  const { data, error, loading } = useGetPosts();
   const renderPosts = (portfolios) => {
     return portfolios.map((portfolio) => (
       <li key={portfolio.id}>
