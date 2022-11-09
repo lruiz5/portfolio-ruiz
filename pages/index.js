@@ -2,10 +2,13 @@ import { useEffect, useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
 import BaseLayout from "@/components/layouts/BaseLayout";
 import Typed from "typed.js";
+import { useGetUser } from "@/actions/user";
 
 const roles = ["Developer", "Tech Lover", "Team Player", "React JS"];
 const Index = () => {
   const el = useRef(null);
+
+  const { data: user, loading } = useGetUser();
 
   useEffect(() => {
     const typed = new Typed(el.current, {
@@ -27,7 +30,7 @@ const Index = () => {
   }, []);
 
   return (
-    <BaseLayout className="cover">
+    <BaseLayout user={user} loading={loading} className="cover">
       <div className="main-section">
         <div className="background-image">
           <img src="/images/background-index.png" />
@@ -62,7 +65,7 @@ const Index = () => {
               </div>
               <span className="self-typed" ref={el}></span>
               <div className="hero-welcome-bio">
-                <h1>Let's take a look on my work.</h1>
+                <h1>Let's take a look at my work.</h1>
               </div>
             </Col>
           </Row>

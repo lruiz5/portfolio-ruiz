@@ -2,9 +2,12 @@ import Link from "next/link";
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
 import { useGetPosts } from "@/actions";
+import { useGetUser } from "@/actions/user";
 
 const Portfolios = () => {
-  const { data, error, loading } = useGetPosts();
+  const { data, error, loading: loadingData } = useGetPosts();
+  const { data: user, loading } = useGetUser();
+
   const renderPosts = (portfolios) => {
     return portfolios.map((portfolio) => (
       <li key={portfolio.id}>
@@ -14,10 +17,10 @@ const Portfolios = () => {
   };
   return (
     <>
-      <BaseLayout>
+      <BaseLayout user={user} loading={loading}>
         <BasePage>
           <h1>Portfolios Page</h1>
-          {loading && <p>Loading Data...</p>}
+          {loadingData && <p>Loading Data...</p>}
           {data && <ul>{renderPosts(data)}</ul>}
           {error && <div className="alert alert-danger">{error.message}</div>}
         </BasePage>
