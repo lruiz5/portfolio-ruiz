@@ -3,11 +3,12 @@ import { Container, Row, Col } from "reactstrap";
 import BaseLayout from "@/components/layouts/BaseLayout";
 import Typed from "typed.js";
 import { useGetUser } from "@/actions/user";
+import Image from "next/image";
 
 const roles = ["Developer", "Tech Lover", "Team Player", "React JS"];
 const Index = () => {
   const el = useRef(null);
-
+  const tagline = `Let's take a look at my work.`;
   const { data: user, loading } = useGetUser();
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const Index = () => {
     <BaseLayout user={user} loading={loading} className="cover">
       <div className="main-section">
         <div className="background-image">
-          <img src="/images/background-index.png" />
+          <Image alt="textured-bg" src="/images/background-index.png" />
         </div>
         <Container>
           <Row>
@@ -47,7 +48,11 @@ const Index = () => {
                         Have a look at my portfolio and job history.
                       </div>
                     </div>
-                    <img className="image" src="/images/section-1.png" />
+                    <Image
+                      alt="featured"
+                      className="image"
+                      src="/images/section-1.png"
+                    />
                     <div className="shadow-custom">
                       <div className="shadow-inner"> </div>
                     </div>
@@ -65,7 +70,7 @@ const Index = () => {
               </div>
               <span className="self-typed" ref={el}></span>
               <div className="hero-welcome-bio">
-                <h1>Let's take a look at my work.</h1>
+                <h1>{tagline}</h1>
               </div>
             </Col>
           </Row>
