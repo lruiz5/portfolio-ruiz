@@ -31,10 +31,20 @@ const Index = () => {
   }, []);
 
   return (
-    <BaseLayout user={user} loading={loading} className="cover">
+    <BaseLayout
+      user={user}
+      loading={loading}
+      navClass={"transparent"}
+      className="cover"
+    >
       <div className="main-section">
         <div className="background-image">
-          <Image alt="textured-bg" src="/images/background-index.png" />
+          <Image
+            width={1550}
+            height={500}
+            alt="textured-bg"
+            src="/images/background-index.png"
+          />
         </div>
         <Container>
           <Row>
@@ -49,6 +59,8 @@ const Index = () => {
                       </div>
                     </div>
                     <Image
+                      width={450}
+                      height={550}
                       alt="featured"
                       className="image"
                       src="/images/section-1.png"
