@@ -33,7 +33,6 @@ export const withAuth =
       !session.user ||
       (role && !isAuthorized(session.user, role))
     ) {
-      debugger;
       res.writeHead(302, { Location: "/api/v1/login" });
       res.end();
       return { props: {} };
