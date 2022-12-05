@@ -7,7 +7,6 @@ import { createPortfolio } from "@/actions/portfolios";
 
 const PortfolioCreate = ({ user, loading }) => {
   const _createPortfolio = (data) => {
-    alert(JSON.stringify(data));
     createPortfolio(data);
   };
   return (
@@ -25,5 +24,4 @@ const PortfolioCreate = ({ user, loading }) => {
   );
 };
 
-//export default withAuth(PortfolioCreate)("admin");
-export default PortfolioCreate;
+export default withAuth(PortfolioCreate)("guest");
