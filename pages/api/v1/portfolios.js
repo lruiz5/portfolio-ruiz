@@ -8,6 +8,8 @@ export default async function createPortfolio(req, res) {
     const json = await new PortfolioApi(accessToken).createPortfolio(data);
     return res.json(json.data);
   } catch (error) {
-    return res.status(error.status || 400).end(error.message);
+    return res
+      .status(error.status || 422)
+      .json(`${error.name}: ${error.message}`);
   }
 }

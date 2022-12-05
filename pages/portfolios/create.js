@@ -3,19 +3,29 @@ import BasePage from "@/components/BasePage";
 import withAuth from "@/hoc/withAuth";
 import { Row, Col } from "reactstrap";
 import PortfolioForm from "@/components/PortfolioForm";
-import { createPortfolio } from "@/actions/portfolios";
+import { useCreatePortfolio } from "@/actions/portfolios";
+import Redirect from "@/components/shared/Redirect";
 
-const PortfolioCreate = ({ user, loading }) => {
-  const _createPortfolio = (data) => {
-    createPortfolio(data);
-  };
+const PortfolioCreate = ({ user, loading: userLoading }) => {
+  const [
+    createPortfolio,
+    { data: portfolioData, loading: portfolioLoading, error: portfolioError },
+  ] = useCreatePortfolio();
+
+  if (portfolioData) {
+    return <Redirect to="/portfolios" />;
+  }
+
   return (
     <>
-      <BaseLayout user={user} loading={loading}>
+      <BaseLayout user={user} loading={userLoading}>
         <BasePage header="Create Portfolio">
           <Row>
             <Col md="8">
-              <PortfolioForm onSubmit={_createPortfolio} />
+              <PortfolioForm onSubmit={createPortfolio} />
+              {portfolioError && (
+                <div className="alert alert-danger mt-2">{portfolioError}</div>
+              )}
             </Col>
           </Row>
         </BasePage>
