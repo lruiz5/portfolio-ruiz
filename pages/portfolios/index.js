@@ -3,8 +3,9 @@ import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
 import { useGetUser } from "@/actions/user";
 import PortfolioApi from "@/lib/api/portfolios";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 import PortfolioCard from "@/components/PortfolioCard";
+import { isAuthorized } from "@/utils/auth0";
 
 const Portfolios = ({ portfolios }) => {
   const router = useRouter();
@@ -26,7 +27,26 @@ const Portfolios = ({ portfolios }) => {
                 }}
                 md="4"
               >
-                <PortfolioCard portfolio={portfolio} />
+                <PortfolioCard portfolio={portfolio}>
+                  {user && isAuthorized(user, "admin") && (
+                    <>
+                      <Button
+                        className="mx-2"
+                        color="warning"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/portfolios/[id]/edit",
+                            `/portfolios/${portfolio._id}/edit`
+                          );
+                        }}
+                      >
+                        Edit
+                      </Button>
+                      <Button color="danger">Delete</Button>
+                    </>
+                  )}
+                </PortfolioCard>
               </Col>
             ))}
           </Row>

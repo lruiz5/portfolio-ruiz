@@ -34,4 +34,4 @@ const PortfolioCreate = ({ user, loading: userLoading }) => {
   );
 };
 
-export default withAuth(PortfolioCreate)("guest");
+export default withAuth(PortfolioCreate)("admin");
