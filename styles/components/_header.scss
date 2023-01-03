@@ -39,4 +39,31 @@
         }
       }
     }
+    .port-dropdown-menu {
+      .dropdown-item:active{
+        background-color: #dba919;
+        color: #fefefe;
+      }
+      
+      .port-dropdown-item {
+        color: #4e4e4e;
+        &.active {
+          color: #dba919;
+          
+        }
+      }
+      .port-dropdown-item:active {
+        color: #fefefe;
+        &.active {
+          color: #dba919;
+          
+        }
+      }
+    
+      .port-dropdown-toggle {
+        color: white;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
   }
