@@ -19,4 +19,16 @@ export default async function handlePortfolio(req, res) {
         .json(`${error.name}: ${error.message}`);
     }
   }
+
+  if (req.method === "DELETE") {
+    try {
+      const { accessToken } = await auth0.getSession(req, res);
+      const json = await new PortfolioApi(accessToken).delete(req.query.id);
+      return res.json(json.data);
+    } catch (error) {
+      return res
+        .status(error.status || 422)
+        .json(`${error.name}: ${error.message}`);
+    }
+  }
 }
