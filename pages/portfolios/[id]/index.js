@@ -40,13 +40,13 @@ export async function getStaticPaths() {
   //fallback: false means unresolved paths return 404 page.
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 export async function getStaticProps({ params }) {
   const json = await new PortfolioApi().getById(params.id);
   const portfolio = json.data;
 
-  return { props: { portfolio } };
+  return { props: { portfolio }, revalidate: 5 };
 }
 export default PortfolioDetail;

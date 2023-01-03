@@ -89,6 +89,7 @@ export async function getStaticProps() {
     props: {
       portfolios,
     },
+    revalidate: 5,
   };
 }
 
