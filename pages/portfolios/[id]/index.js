@@ -3,6 +3,8 @@ import BasePage from "@/components/BasePage";
 import { useRouter } from "next/router";
 import { useGetUser } from "@/actions/user";
 import PortfolioApi from "@/lib/api/portfolios";
+import Link from "next/link";
+import { formatDate } from "helpers/functions";
 
 const PortfolioDetail = ({ portfolio }) => {
   const router = useRouter();
@@ -10,13 +12,37 @@ const PortfolioDetail = ({ portfolio }) => {
 
   return (
     <>
-      <BaseLayout user={user} loading={loading}>
+      <BaseLayout navClass="transparent" user={user} loading={loading}>
         <BasePage
-          header="Portfolio Details"
+          indexPage
+          noWrapper
           metaTitle={`${portfolio.title} - Luis Ruiz`}
           metaDescription={portfolio.description}
         >
-          {JSON.stringify(portfolio)}
+          <div className="portfolio-detail">
+            <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+              <main role="main" class="inner page-cover">
+                <h1 class="cover-heading">{portfolio.title}</h1>
+                <p class="lead dates">{`${formatDate(portfolio.startDate)} - ${
+                  formatDate(portfolio.endDate) || "Present"
+                }`}</p>
+                <p class="lead info mb-0">
+                  {portfolio.jobTitle} | {portfolio.company} |{" "}
+                  {portfolio.location}
+                </p>
+                <p class="lead">{portfolio.description}</p>
+                <p class="lead">
+                  <Link
+                    href={portfolio.companyWebsite}
+                    class="btn btn-lg btn-secondary"
+                    target={"_blank"}
+                  >
+                    Visit Company
+                  </Link>
+                </p>
+              </main>
+            </div>
+          </div>
         </BasePage>
       </BaseLayout>
     </>
