@@ -41,9 +41,11 @@ const BasePage = (props) => {
           key="og:image"
           content={`${process.env.BASE_URL}/images/section-1.png`}
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
         />
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
         <link
