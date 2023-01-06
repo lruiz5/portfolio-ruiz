@@ -32,7 +32,11 @@ const Portfolios = ({ portfolios: initialPortfolios }) => {
   return (
     <>
       <BaseLayout user={user} loading={loading}>
-        <BasePage header="Portfolios" className="portfolio-page">
+        <BasePage
+          header="Portfolios"
+          className="portfolio-page"
+          metaTitle="Published Works - Luis Ruiz"
+        >
           <Row>
             {portfolios.map((portfolio) => (
               <Col

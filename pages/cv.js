@@ -7,7 +7,7 @@ const CV = () => {
   return (
     <>
       <BaseLayout user={user} loading={loading}>
-        <BasePage>
+        <BasePage metaTitle="CV - Luis Ruiz">
           <Row>
             <Col md={{ size: 8, offset: 2 }}>
               <iframe
