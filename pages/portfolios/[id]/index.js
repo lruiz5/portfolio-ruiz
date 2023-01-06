@@ -11,7 +11,11 @@ const PortfolioDetail = ({ portfolio }) => {
   return (
     <>
       <BaseLayout user={user} loading={loading}>
-        <BasePage header="Portfolio Details">
+        <BasePage
+          header="Portfolio Details"
+          metaTitle={`${portfolio.title} - Luis Ruiz`}
+          metaDescription={portfolio.description}
+        >
           {JSON.stringify(portfolio)}
         </BasePage>
       </BaseLayout>
