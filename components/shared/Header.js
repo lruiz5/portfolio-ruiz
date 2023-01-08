@@ -34,15 +34,15 @@ const BsNavBrand = () => {
   );
 };
 const LoginLink = () => (
-  <a className="nav-link port-navbar-link" href="/api/v1/login">
+  <Link className="nav-link port-navbar-link" href="/api/v1/login">
     Login
-  </a>
+  </Link>
 );
 
 const LogoutLink = () => (
-  <a className="nav-link port-navbar-link" href="/api/v1/logout">
-    Logout"
-  </a>
+  <Link className="nav-link port-navbar-link" href="/api/v1/logout">
+    Logout
+  </Link>
 );
 
 const AdminMenu = () => {

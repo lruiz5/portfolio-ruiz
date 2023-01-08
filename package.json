@@ -6,7 +6,8 @@
     "dev": "next dev",
     "dev-debug": "set NODE_OPTIONS='--inspect' && next dev",
     "build": "next build",
-    "start": "next start",
+    "start-dev": "cross-env NODE_ENV=production node server.js",
+    "start" : "next start",
     "lint": "next lint"
   },
   "dependencies": {
