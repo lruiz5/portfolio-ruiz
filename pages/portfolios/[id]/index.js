@@ -1,13 +1,25 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
-import { useRouter } from "next/router";
 import { useGetUser } from "@/actions/user";
 import PortfolioApi from "@/lib/api/portfolios";
 import Link from "next/link";
 import { formatDate } from "helpers/functions";
 
-const PortfolioDetail = ({ portfolio }) => {
-  const router = useRouter();
+const PortfolioDetail = ({
+  portfolio = {
+    _id: "abc123",
+    title: "Default Title",
+    company: "Default Co.",
+    companyWebsite: "https://www.google.com",
+    location: "USA",
+    jobTitle: "Default Job Title",
+    description: "Default description",
+    startDate: "2023-01-01T00:00:00.000Z",
+    endDate: "2023-12-01T00:00:00.000Z",
+    userId: "123abc",
+    createdAt: "2023-01-07T09:23:11.862Z",
+  },
+}) => {
   const { data: user, loading } = useGetUser();
 
   return (
@@ -49,13 +61,6 @@ const PortfolioDetail = ({ portfolio }) => {
   );
 };
 
-/* export async function getServerSideProps({ query }) {
-  const json = await new PortfolioApi().getById(query.id);
-  const portfolio = json.data;
-
-  return { props: { portfolio } };
-} */
-
 //this function is executed at build time
 export async function getStaticPaths() {
   const json = await new PortfolioApi().getAll();
@@ -77,6 +82,6 @@ export async function getStaticProps({ params }) {
   const json = await new PortfolioApi().getById(params.id);
   const portfolio = json.data;
 
-  return { props: { portfolio }, revalidate: 5 };
+  return { props: { portfolio }, revalidate: 1 };
 }
 export default PortfolioDetail;

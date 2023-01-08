@@ -44,7 +44,7 @@ const About = () => {
                 and freelance developer.{" "}
               </p>
               <p>
-                I have a Bachelors' degree in Computer Science and several years
+                I have a Bachelors degree in Computer Science and several years
                 of experience working on a wide range of technologies and
                 projects from C++ development for ultrasound devices to modern
                 mobile and web applications in React, React Native, and Next JS.
