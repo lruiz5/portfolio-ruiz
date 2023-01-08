@@ -32,21 +32,21 @@ const PortfolioDetail = ({
           metaDescription={portfolio.description}
         >
           <div className="portfolio-detail">
-            <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-              <main role="main" class="inner page-cover">
-                <h1 class="cover-heading">{portfolio.title}</h1>
-                <p class="lead dates">{`${formatDate(portfolio.startDate)} - ${
-                  formatDate(portfolio.endDate) || "Present"
-                }`}</p>
-                <p class="lead info mb-0">
+            <div className="cover-container d-flex h-100 p-3 mx-auto flex-column">
+              <main role="main" className="inner page-cover">
+                <h1 className="cover-heading">{portfolio.title}</h1>
+                <p className="lead dates">{`${formatDate(
+                  portfolio.startDate
+                )} - ${formatDate(portfolio.endDate) || "Present"}`}</p>
+                <p className="lead info mb-0">
                   {portfolio.jobTitle} | {portfolio.company} |{" "}
                   {portfolio.location}
                 </p>
-                <p class="lead">{portfolio.description}</p>
-                <p class="lead">
+                <p className="lead">{portfolio.description}</p>
+                <p className="lead">
                   <Link
                     href={portfolio.companyWebsite}
-                    class="btn btn-lg btn-secondary"
+                    className="btn btn-lg btn-secondary"
                     target={"_blank"}
                   >
                     Visit Company
@@ -82,6 +82,6 @@ export async function getStaticProps({ params }) {
   const json = await new PortfolioApi().getById(params.id);
   const portfolio = json.data;
 
-  return { props: { portfolio }, revalidate: 1 };
+  return { props: { portfolio }, revalidate: 60 };
 }
 export default PortfolioDetail;
